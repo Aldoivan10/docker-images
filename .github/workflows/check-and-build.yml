@@ -20,8 +20,8 @@ jobs:
             base_image: codercom/code-server:latest
             context: ./development
             dockerfile: Dockerfile.node
-            image: ghcr.io/Aldoivan10/node:latest
-            arcane_project_id: TU_PROJECT_ID_NODE
+            image: ghcr.io/aldoivan10/node:latest
+            arcane_project_id: code-node
           # - name: python
           #   base_image: codercom/code-server:latest
           #   context: ./development
