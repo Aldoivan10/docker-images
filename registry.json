@@ -1,0 +1,25 @@
+{
+    "$schema": "https://github.com/getarcaneapp/arcane-templates/schema.json",
+    "author": "aldoivan10",
+    "description": "Docker templates for internal applications",
+    "name": "Aldoivan templates",
+    "templates": [
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/hermes-webui/docker-compose.yml",
+            "description": "Web interface for the Hermes agent",
+            "documentation_url": "https://github.com/nesquena/hermes-webui",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/hermes-webui/.env.example",
+            "id": "hermes-webui",
+            "name": "Hermes webui",
+            "tags": [
+                "ai",
+                "agent",
+                "web"
+            ],
+            "version": "1.0.0"
+        }
+    ],
+    "url": "https://github.com/aldoivan10/docker-images",
+    "version": "1.0.0"
+}
