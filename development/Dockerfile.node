@@ -13,14 +13,13 @@ SHELL ["/bin/bash", "-c"]
 ENV FNM_DIR="/home/coder/.local/share/fnm"
 ENV PATH="${FNM_DIR}:${PATH}"
 
-# Paso 1: instalar fnm
 RUN curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "$FNM_DIR" --skip-shell
 
-# Paso 2: usar fnm para instalar node y lo demás
-RUN eval "$(fnm env --use-on-cd --shell bash)" \
+RUN eval "$(fnm env --shell bash)" \
     && fnm install --latest \
-    && fnm use latest \
-    && npm install -g npm@latest pnpm @opencode/cli \
-    && echo 'eval "$(fnm env --use-on-cd --shell bash)"' >> ~/.bashrc
+    && fnm alias "$(fnm current)" default \
+    && npm install -g npm@latest pnpm @opencode/cli
+
+ENV PATH="${FNM_DIR}/aliases/default/bin:${PATH}"
 
 WORKDIR /home/coder/workspace
