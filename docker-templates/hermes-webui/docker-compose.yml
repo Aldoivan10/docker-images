@@ -1,0 +1,57 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/hermesagent.svg
+  urls:
+    - https://github.com/nesquena/hermes-webui
+
+services:
+  hermes-agent:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-agent
+    command: gateway run && hermes gateway
+    volumes:
+      - hermes-webui:/home/hermes/.hermes
+      - hermes-agent:/opt/hermes
+    environment:
+      - HERMES_HOME=/home/hermes/.hermes
+      - HERMES_UID=${UID}
+      - HERMES_GID=${GID}
+      - HERMES_DASHBOARD_HOST=0.0.0.0
+      - HERMES_DASHBOARD_PORT=9119
+      - API_SERVER_ENABLED=true
+      - API_SERVER_HOST=0.0.0.0
+      - API_SERVER_KEY=${API_SERVER_KEY}
+    restart: unless-stopped
+    networks:
+      - hermes
+
+  hermes-webui:
+    image: ghcr.io/nesquena/hermes-webui:latest
+    container_name: hermes-webui
+    depends_on:
+      - hermes-agent
+    volumes:
+      - hermes-webui:/home/hermeswebui/.hermes
+      - hermes-agent:/home/hermeswebui/.hermes/hermes-agent:ro
+      - ./workspace:/workspace
+    environment:
+      - HERMES_WEBUI_HOST=0.0.0.0
+      - HERMES_WEBUI_PORT=8787
+      - HERMES_WEBUI_STATE_DIR=/home/hermeswebui/.hermes/webui
+      - WANTED_UID=${UID}
+      - WANTED_GID=${GID}
+      - HERMES_API_URL=http://hermes-agent:8642
+      - HERMES_WEBUI_GATEWAY_API_KEY=${API_SERVER_KEY}
+    # Uncomment for expose port in host
+    # ports: 
+    #  - 8787:8787
+    restart: unless-stopped
+    networks:
+      - hermes
+
+networks:
+  hermes:
+    internal: true
+
+volumes:
+  hermes-webui:
+  hermes-agent:
