@@ -1,0 +1,72 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/snapotter.webp
+  urls:
+    - https://docs.snapotter.com/guide/deployment
+
+services:
+  snapotter:
+    image: snapotter/snapotter:latest
+    container_name: snapotter
+    # ports:
+    #  - "1349:1349"
+    volumes:
+      - snapotter-data:/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1349/api/v1/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    shm_size: "2gb"            # Needed for Python ML shared memory
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - snapotter
+    labels:
+      com.getarcaneapp.arcane.icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/snapotter.webp
+
+  postgres:
+    image: postgres:17-alpine
+    container_name: snapotter-pg
+    volumes: ["snapotter-db:/var/lib/postgresql/data"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U snapotter -d snapotter"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    networks:
+      - snapotter
+
+  redis:
+    container_name: snapotter-redis
+    image: redis:8-alpine
+    volumes: ["snapotter-redis:/data"]
+    restart: unless-stopped
+    networks:
+      - snapotter
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+networks:
+  snapotter:
+    internal: true
+
+volumes:
+  snapotter-data:
+  snapotter-db:
+  snapotter-redis:

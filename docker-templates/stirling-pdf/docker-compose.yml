@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/stirling-pdf.svg
+  urls:
+    - https://docs.stirlingpdf.com/Installation/Docker%20Install/
+
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    volumes:
+      - ./stirling-data/tessdata:/usr/share/tessdata   # OCR language files
+      - ./stirling-data/configs:/configs               # Settings & database
+      - ./stirling-data/logs:/logs                     # Application logs
+      - ./stirling-data/pipeline:/pipeline             # Automation configs
+    # ports:
+    #  - '8080:8080'
+    restart: unless-stopped
+    labels:
+      com.getarcaneapp.arcane.icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/stirling-pdf.svg

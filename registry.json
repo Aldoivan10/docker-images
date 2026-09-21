@@ -18,6 +18,80 @@
                 "web"
             ],
             "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/godoxy/docker-compose.yml",
+            "description": "Lightweight, high-performance reverse proxy and container orchestrator specifically tailored for self-hosters",
+            "documentation_url": "https://github.com/yusing/godoxy",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/godoxy/.env.example",
+            "id": "godoxy",
+            "name": "Godoxy",
+            "tags": [
+                "proxy-reverse",
+                "dashboard",
+                "traffic"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/vaultwarden/docker-compose.yml",
+            "description": "Store, manage, and share credentials without relying on external cloud services, offering full control over data and deployment",
+            "documentation_url": "https://github.com/dani-garcia/vaultwarden",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/vaultwarden/.env.example",
+            "id": "vaultwarden",
+            "name": "Vaultwarden",
+            "tags": [
+                "password-manager",
+                "data"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/snapotter/docker-compose.yml",
+            "description": "File-processing infrastructure",
+            "documentation_url": "https://docs.snapotter.com/guide/deployment",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/snapotter/.env.example",
+            "id": "snapotter",
+            "name": "SnapOtter",
+            "tags": [
+                "image",
+                "video",
+                "pdf",
+                "tool"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/pocket-id/docker-compose.yml",
+            "description": "Lightweight identity provider solution that supports authentication and authorization for applications",
+            "documentation_url": "https://pocket-id.org/docs/introductiont",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/pocket-id/.env.example",
+            "id": "pocket-id",
+            "name": "Pocket-ID",
+            "tags": [
+                "authentication",
+                "identity",
+                "oidc"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/stirling-pdfdocker-compose.yml",
+            "description": "Toolkit that provides a wide range of features such as merging, splitting, converting, and editing PDF files",
+            "documentation_url": "https://pocket-id.org/docs/introduction",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/stirling-pdf/.env.example",
+            "id": "stirling-pdf",
+            "name": "Stirling PDF",
+            "tags": [
+                "PDF",
+                "toolkit"
+            ],
+            "version": "1.0.0"
         }
     ],
     "url": "https://github.com/aldoivan10/docker-images",

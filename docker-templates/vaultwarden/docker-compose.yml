@@ -1,0 +1,14 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/vaultwarden.svg
+  urls:
+    - https://github.com/dani-garcia/vaultwarden/tree/main
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    volumes:
+      - ./vaultwarden-data:/data
+    labels:
+      com.getarcaneapp.arcane.icon: https://cdn.jsdelivr.net/gh/selfhst/icons/svg/vaultwarden.svg
