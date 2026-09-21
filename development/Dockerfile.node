@@ -9,8 +9,8 @@ RUN apt update \
 USER coder
 
 RUN curl -fsSL https://fnm.vercel.app/install | bash \
-    && fnm install --latest \
-    && fnm use latest \
+    && ~/.local/share/fnm/fnm install --latest \
+    && ~/.local/share/fnm/fnm use latest \
     && npm install -g npm@latest pnpm @opencode/cli \
     && echo 'alias opencode="\opencode attach http://opencode:4096"' >> ~/.bashrc
 
