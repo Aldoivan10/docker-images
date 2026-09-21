@@ -1,1 +1,17 @@
 FROM codercom/code-server:latest
+
+USER root
+
+RUN apt update \
+    && apt upgrade \
+    && apt install -y curl gcc
+
+USER coder
+
+RUN curl -fsSL https://fnm.vercel.app/install | bash \
+    && fnm install --latest
+    && fnm use latest
+    && npm install -g npm@latest pnpm @opencode/cli
+    && echo 'alias opencode="\opencode attach http://opencode:4096"' >> ~/.bashrc
+
+WORKDIR /home/coder/workspace
