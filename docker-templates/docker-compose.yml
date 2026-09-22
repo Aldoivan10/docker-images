@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/arcane.svg
+  urls:
+    - https://getarcane.app/docs/get-started/installation
+
+services:
+  arcane:
+    image: ghcr.io/getarcaneapp/manager:latest
+    container_name: arcane
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/app/data
+      - ./builds:/builds
+    # Use the host cgroup namespace so Arcane can detect its own container ID
+    # more reliably — this matters for self-upgrades.
+    cgroup: host
+    restart: unless-stopped
+    labels:
+      com.getarcaneapp.arcane.icon: https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/arcane.svg

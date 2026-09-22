@@ -81,7 +81,7 @@
         },
         {
             "author": "aldoivan10",
-            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/stirling-pdfdocker-compose.yml",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/stirling-pdf/docker-compose.yml",
             "description": "Toolkit that provides a wide range of features such as merging, splitting, converting, and editing PDF files",
             "documentation_url": "https://pocket-id.org/docs/introduction",
             "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/stirling-pdf/.env.example",
@@ -90,6 +90,21 @@
             "tags": [
                 "PDF",
                 "toolkit"
+            ],
+            "version": "1.0.0"
+        },
+        {
+            "author": "aldoivan10",
+            "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/arcane/docker-compose.yml",
+            "description": "A beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes",
+            "documentation_url": "https://pocket-id.org/docs/introduction",
+            "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/arcane/.env.example",
+            "id": "arcane",
+            "name": "Arcane",
+            "tags": [
+                "docker",
+                "interface",
+                "containers",
             ],
             "version": "1.0.0"
         }
