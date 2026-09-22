@@ -97,7 +97,7 @@
             "author": "aldoivan10",
             "compose_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/arcane/docker-compose.yml",
             "description": "A beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes",
-            "documentation_url": "https://pocket-id.org/docs/introduction",
+            "documentation_url": "https://getarcane.app/docs/get-started/installation",
             "env_url": "https://raw.githubusercontent.com/aldoivan10/docker-images/refs/heads/main/docker-templates/arcane/.env.example",
             "id": "arcane",
             "name": "Arcane",
